@@ -1,266 +1,106 @@
-<!doctype html>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amethyst Martinez - Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <style>
-        :root {
-            --dark: #3C4A3E;
-            --accent: #E5B0AC;
-            --light: #F8E5E4;
-            --bg: #FAFAFA;
-            --text: #4A3C38;
-            --highlight: #8B786D;
-            --sage: #8DA290;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap');
         
         body {
-            margin: 0;
-            font-family: 'Playfair Display', serif;
-            background-color: var(--bg);
-            color: var(--dark);
-            line-height: 1.7;
+            font-family: 'Courier Prime', monospace;
         }
-
-        .profile-section {
-            position: relative;
-            display: flex;
-            align-items: center;
-            padding: 6rem;
-            background: linear-gradient(135deg, var(--dark) 0%, #2C3E3A 100%);
-            color: var(--light);
-            overflow: hidden;
-        }
-
-        .profile-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                radial-gradient(rgba(255,255,255,0.05) 8%, transparent 8%);
-            background-size: 30px 30px;
-            opacity: 0.5;
-            z-index: 1;
-        }
-
-        .profile-content {
-            position: relative;
-            z-index: 2;
-            max-width: 600px;
-        }
-
-        h1 {
-            font-family: 'Abril Fatface', cursive;
-            font-size: 4rem;
-            margin: 0 0 1.5rem 0;
-            color: var(--accent);
-            letter-spacing: 0.03em;
-            line-height: 1.2;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-        }
-
-        .profile-section p {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 400;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--light);
-            opacity: 0.9;
-        }
-
-        .profile-image {
-            position: relative;
-            width: 240px;
-            height: 240px;
-            margin-right: 4rem;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 4px solid var(--accent);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-            z-index: 2;
-        }
-
-        .button-container {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .github-link {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            background-color: var(--highlight);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-        }
-
-        .github-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
-            background-color: #6e5d4f;
-        }
-
+        
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 3rem;
-            padding: 6rem 4rem;
-            background-color: var(--bg);
+            gap: 2rem;
         }
-
+        
         .portfolio-item {
-            border-bottom: 1px solid var(--highlight);
-            padding-bottom: 2rem;
             transition: transform 0.2s ease;
         }
-
+        
         .portfolio-item:hover {
             transform: translateX(10px);
         }
-
-        .publisher-tag {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.8rem;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            font-weight: 600;
-        }
-
-        h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            margin: 0.5rem 0;
-            color: var(--dark);
-            line-height: 1.3;
-            font-weight: 700;
-        }
-
-        .portfolio-item p {
-            font-family: 'Montserrat', sans-serif;
-            color: #666;
-            margin: 1rem 0;
-            font-weight: 400;
-        }
-
-        .portfolio-item a {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-block;
-            margin-top: 1rem;
-        }
-
-        .portfolio-item a:hover {
-            text-decoration: underline;
-        }
-
-        footer {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--dark);
-            color: var(--light);
-            text-align: center;
-            padding: 2rem;
-        }
-
-        @media (max-width: 768px) {
-            .profile-section {
-                flex-direction: column;
-                text-align: center;
-                padding: 3rem 1.5rem;
-            }
-
-            .profile-image {
-                margin: 0 0 2rem 0;
-                width: 180px;
-                height: 180px;
-            }
-
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            .portfolio-grid {
-                padding: 3rem 1.5rem;
-                gap: 2rem;
-            }
-        }
     </style>
 </head>
-<body>
-    <section class="profile-section">
-        <img src="headshot.jpg" alt="Amethyst Martinez" class="profile-image">
-        <div class="profile-content">
-            <h1>Amethyst Martinez</h1>
-            <p>Amethyst is a journalist who has a keen interest in telling the stories of underserved communities. She has interned at NJ.com and the Star-Ledger, the Austin American-Statesman, Delaware Online and the News Journal, Barron's, and most recently, The Daily Beast, where she has been working since October 2024. Last year, she served as the executive editor of her campus newspaper, The Rider News. She is currently a Data Journalism master's student at Columbia University, and is based in New York City. Reach her at amethystmartinez22@gmail.com. </p>
-            <div class="button-container">
-                <a href="https://github.com/amethystmart" class="github-link" target="_blank">GitHub</a>
+<body class="bg-yellow-50 text-black">
+    <section class="border-b-2 border-black">
+        <div class="max-w-6xl mx-auto px-6 py-16 md:py-24 flex flex-col md:flex-row items-center md:items-start gap-8">
+            <img src="headshot.jpg" alt="Amethyst Martinez" class="w-48 h-48 md:w-56 md:h-56 object-cover border-2 border-black">
+            <div>
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">Amethyst Martinez</h1>
+                <p class="text-lg leading-relaxed mb-6">
+                    Amethyst is a journalist who has a keen interest in telling the stories of underserved communities. She has interned at NJ.com and the Star-Ledger, the Austin American-Statesman, Delaware Online and the News Journal, Barron's, and most recently, The Daily Beast, where she has been working since October 2024. Last year, she served as the executive editor of her campus newspaper, The Rider News. She is currently a Data Journalism master's student at Columbia University, and is based in New York City. Reach her at amethystmartinez22@gmail.com.
+                </p>
+                <div>
+                    <a href="https://github.com/amethystmart" target="_blank" class="inline-block border-2 border-black px-6 py-2 hover:bg-black hover:text-white transition-colors">GitHub</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="portfolio" class="portfolio-grid">
-        <div class="portfolio-item">
-            <span class="publisher-tag">Delaware Online</span>
-            <h3>The Story of Charles 'Bobby' Steele</h3>
-            <p>A revealing investigative piece about the mysterious disappearance and death of a man in Delaware.</p>
-            <a href="https://www.delawareonline.com/story/news/local/2024/04/08/charles-bobby-steele-glasgow-alum-missing-death-claymont-wilmington-delaware-elkton-maryland/72900838007/" target="_blank">Read Article →</a>
-        </div>
-        <div class="portfolio-item">
-            <span class="publisher-tag">Austin American-Statesman</span>
-            <h3>Remembering James Hendricks</h3>
-            <p>A deeply personal narrative about Austin native James Hendricks' life and tragic death at Arches National Park.</p>
-            <a href="https://www.statesman.com/story/news/local/2023/08/20/austin-texas-james-hendricks-died-utah-arches-national-park-ruth-hendricks-brough/70590981007/" target="_blank">Read Article →</a>
-        </div>
-        <div class="portfolio-item">
-            <span class="publisher-tag">The Rider News</span>
-            <h3>Title IX Investigation</h3>
-            <p>An investigative report exposing delays and unresolved Title IX cases at Rider University, highlighting systemic issues in handling sexual misconduct complaints.</p>
-            <a href="https://theridernews.com/title-ix-failures-rider-students-unresolved-cases-linger/" target="_blank">Read Investigation →</a>
-        </div>
-        <div class="portfolio-item">
-            <span class="publisher-tag">The Daily Beast</span>
-            <h3>Person of Interest: Luigi Mangione's Loved Ones Expressed Concern About Him Before Killing</h3>
-            <p>An exclusive breaking news piece exploring Luigi Mangione's social media history.</p>
-            <a href="https://www.thedailybeast.com/person-of-interest-luigi-mangiones-loved-ones-expressed-concern-about-him-before-killing-are-y/" target="_blank">Read Article →</a>
-        </div>
-        <div class="portfolio-item">
-            <span class="publisher-tag">Austin American-Statesman</span>
-            <h3>Austin Pride Carries On Despite Scalding Heat and Contention</h3>
-            <p>A compelling coverage of Austin's Pride event, highlighting resilience and community spirit in the face of challenging circumstances.</p>
-            <a href="https://www.statesman.com/story/news/2023/08/13/austin-pride-carries-on-despite-scalding-heat-and-contention/70584210007/" target="_blank">Read Article →</a>
-        </div>
-        <div class="portfolio-item">
-            <span class="publisher-tag">Personal Project</span>
-            <h3>NYC Rare Bird Sightings Tracker</h3>
-            <p>An automated web project developed during a coding course with Jonathan Soma, utilizing web scraping techniques to track and display rare bird sightings in New York City. Demonstrates data collection, web development, and coding skills.</p>
-            <a href="https://amethystmart.github.io/bird_stuff/" target="_blank">View Project →</a>
-        </div>
-        <div class="portfolio-item">
-    <span class="publisher-tag">Data Analysis</span>
-    <h3>Ebb and Flow: America's Everchanging Views on Capital Punishment</h3>
-    <p>A data-driven analysis exploring how public opinion on the death penalty has fluctuated over five decades.</p>
-    <a href="death_penalty.html">View Project →</a>
-</div>
-    </section>
+    <main class="max-w-6xl mx-auto px-6 py-16">
+        <div class="portfolio-grid">
+            <div class="portfolio-item border border-black p-6 bg-yellow-50">
+                <span class="text-sm font-bold">Delaware Online</span>
+                <h3 class="text-xl font-bold mt-2 mb-3">The Story of Charles 'Bobby' Steele</h3>
+                <p class="mb-4">A revealing investigative piece about the mysterious disappearance and death of a man in Delaware.</p>
+                <a href="https://www.delawareonline.com/story/news/local/2024/04/08/charles-bobby-steele-glasgow-alum-missing-death-claymont-wilmington-delaware-elkton-maryland/72900838007/" target="_blank" class="underline">Read Article →</a>
+            </div>
 
-    <footer>
-        <p>© 2025 Amethyst Martinez | Journalist & Data Storyteller</p>
-        <p>Contact: amethystmartinez22@gmail.com</p>
+            <div class="portfolio-item border border-black p-6">
+                <span class="text-sm font-bold">Austin American-Statesman</span>
+                <h3 class="text-xl font-bold mt-2 mb-3">Remembering James Hendricks</h3>
+                <p class="mb-4">A deeply personal narrative about Austin native James Hendricks' life and tragic death at Arches National Park.</p>
+                <a href="https://www.statesman.com/story/news/local/2023/08/20/austin-texas-james-hendricks-died-utah-arches-national-park-ruth-hendricks-brough/70590981007/" target="_blank" class="underline">Read Article →</a>
+            </div>
+
+            <div class="portfolio-item border border-black p-6">
+                <span class="text-sm font-bold">The Rider News</span>
+                <h3 class="text-xl font-bold mt-2 mb-3">Title IX Investigation</h3>
+                <p class="mb-4">An investigative report exposing delays and unresolved Title IX cases at Rider University, highlighting systemic issues in handling sexual misconduct complaints.</p>
+                <a href="https://theridernews.com/title-ix-failures-rider-students-unresolved-cases-linger/" target="_blank" class="underline">Read Investigation →</a>
+            </div>
+
+            <div class="portfolio-item border border-black p-6">
+                <span class="text-sm font-bold">The Daily Beast</span>
+                <h3 class="text-xl font-bold mt-2 mb-3">Person of Interest: Luigi Mangione's Loved Ones Expressed Concern</h3>
+                <p class="mb-4">An exclusive breaking news piece exploring Luigi Mangione's social media history.</p>
+                <a href="https://www.thedailybeast.com/person-of-interest-luigi-mangiones-loved-ones-expressed-concern-about-him-before-killing-are-y/" target="_blank" class="underline">Read Article →</a>
+            </div>
+
+            <div class="portfolio-item border border-black p-6">
+                <span class="text-sm font-bold">Austin American-Statesman</span>
+                <h3 class="text-xl font-bold mt-2 mb-3">Austin Pride Carries On Despite Scalding Heat</h3>
+                <p class="mb-4">A compelling coverage of Austin's Pride event, highlighting resilience and community spirit in the face of challenging circumstances.</p>
+                <a href="https://www.statesman.com/story/news/2023/08/13/austin-pride-carries-on-despite-scalding-heat-and-contention/70584210007/" target="_blank" class="underline">Read Article →</a>
+            </div>
+
+            <div class="portfolio-item border border-black p-6">
+                <span class="text-sm font-bold">Personal Project</span>
+                <h3 class="text-xl font-bold mt-2 mb-3">NYC Rare Bird Sightings Tracker</h3>
+                <p class="mb-4">An automated web project developed during a coding course with Jonathan Soma, utilizing web scraping techniques to track and display rare bird sightings in New York City.</p>
+                <a href="https://amethystmart.github.io/bird_stuff/" target="_blank" class="underline">View Project →</a>
+            </div>
+
+            <div class="portfolio-item border border-black p-6">
+                <span class="text-sm font-bold">Data Analysis</span>
+                <h3 class="text-xl font-bold mt-2 mb-3">Ebb and Flow: America's Everchanging Views on Capital Punishment</h3>
+                <p class="mb-4">A data-driven analysis exploring how public opinion on the death penalty has fluctuated over five decades.</p>
+                <a href="death_penalty.html" class="underline">View Project →</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="border-t-2 border-black py-8">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <p class="mb-2">© 2025 Amethyst Martinez | Journalist & Data Storyteller</p>
+            <p>Contact: amethystmartinez22@gmail.com</p>
+        </div>
     </footer>
 </body>
 </html>
