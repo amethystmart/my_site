@@ -4,139 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ebb and Flow: America's Everchanging Views on Capital Punishment</title>
-    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <style>
-        :root {
-            --dark: #3C4A3E;
-            --accent: #E5B0AC;
-            --light: #F8E5E4;
-            --bg: #FAFAFA;
-            --text: #4A3C38;
-            --highlight: #8B786D;
-            --sage: #8DA290;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap');
         
         body {
-            margin: 0;
-            font-family: 'Playfair Display', serif;
-            background-color: var(--bg);
-            color: var(--dark);
-            line-height: 1.7;
+            font-family: 'Courier Prime', monospace;
         }
-
-        .story-header {
-            background: linear-gradient(135deg, var(--dark) 0%, #2C3E3A 100%);
-            color: var(--light);
-            padding: 4rem 2rem;
-            text-align: center;
-        }
-
-        .story-header h1 {
-            font-family: 'Abril Fatface', cursive;
-            font-size: 3rem;
-            margin: 0;
-            color: var(--accent);
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .story-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .back-link {
-            display: inline-block;
-            margin: 1rem 0;
-            color: var(--accent);
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-        }
-
-        .back-link:hover {
-            text-decoration: underline;
-        }
-
+        
         .visualization {
             margin: 2rem 0;
-            padding: 1rem;
+            width: 100%;
+        }
+        
+        iframe {
+            width: 100%;
+            border: 1px solid black;
             background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        h2 {
-            font-family: 'Playfair Display', serif;
-            color: var(--dark);
-            margin-top: 2rem;
-        }
-
-        p {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--text);
-            line-height: 1.8;
-        }
-
-        footer {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--dark);
-            color: var(--light);
-            text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
-        }
-
-        @media (max-width: 768px) {
-            .story-header h1 {
-                font-size: 2rem;
-            }
-
-            .story-container {
-                padding: 1rem;
-            }
         }
     </style>
 </head>
-<body>
-    <div class="story-header">
-        <h1>Ebb and Flow: America's Everchanging Views on Capital Punishment</h1>
-    </div>
-
-    <div class="story-container">
-        <a href="index.html" class="back-link">← Back to Portfolio</a>
-
-        <div class="visualization">
-                <iframe title=" After opposition growth, capital punishment support is coming back " aria-label="Interactive area chart" id="datawrapper-chart-tTkxr" src="https://datawrapper.dwcdn.net/tTkxr/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="500" data-external="1"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r=0;r<e.length;r++)if(e[r].contentWindow===a.source){var i=a.data["datawrapper-height"][t]+"px";e[r].style.height=i}}}))}();
-                </script>  
-            </div>
+<body class="bg-yellow-50 text-black">
+    <header class="border-b-2 border-black">
+        <div class="max-w-4xl mx-auto px-6 py-16 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">Ebb and Flow: America's Everchanging Views on Capital Punishment</h1>
         </div>
+    </header>
 
-        <article>
-            <p>Capital punishment comes across as a cut and dry issue for Americans– many laying along party lines, with Democrats vastly disavowing the act as Republicans embrace it. Although the issue seems simple for many across the nation, it has been one of the most hair splitting topics in American history, an ebbing and flowing social issue that has changed with an extraordinarily complex story. Although the trend has over time shown a slowly growing opposition, 2021 showed a sharp increase in those who believed capital punishment is not the answer.
-The year prior, 2020, was a time of radical change in the country. The United States, alongside the world, faced a global pandemic that no one was prepared for. The World Health Organization estimated a death toll of at least 3,000,000 people that year. It was also a period of reflection in the country’s systems. George Floyd, a man who was killed by a police officer, brought to light social issues, and how it intersects with our governmental systems. People wanted change, and right then. 
-For 50 years, the General Social Survey has asked U.S. adults: Should death penalty be allowed for murder? In 2021, something did change among those surveyed: the GSS data showed a large increase opposing capital punishment– in fact, the lowest ever recorded since collection began in 1972. 
-Although the reasoning may never be clear on why support for capital punishment plummeted during that year, over 2,400 people were on death row at the time. 
-</p>
-            <div class="visualization">
-                <iframe title="Less inmates on death row, but no sign of stopping" aria-label="Interactive line chart" id="datawrapper-chart-6stlk" src="https://datawrapper.dwcdn.net/6stlk/2/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="438" data-external="1"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r=0;r<e.length;r++)if(e[r].contentWindow===a.source){var i=a.data["datawrapper-height"][t]+"px";e[r].style.height=i}}}))}();
-</script>
+    <main class="max-w-4xl mx-auto px-6 py-8">
+        <a href="index.html" class="inline-block mb-12 border-b-2 border-black hover:bg-black hover:text-yellow-50 transition-colors px-2">← Back to Portfolio</a>
+
+        <article class="leading-relaxed">
+            <div class="visualization mb-12">
+                <iframe title="After opposition growth, capital punishment support is coming back" aria-label="Interactive area chart" id="datawrapper-chart-tTkxr" src="https://datawrapper.dwcdn.net/tTkxr/1/" scrolling="no" frameborder="0" style="width: 100%; border: none;" height="500" data-external="1"></iframe>
+                <script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r=0;r<e.length;r++)if(e[r].contentWindow===a.source){var i=a.data["datawrapper-height"][t]+"px";e[r].style.height=i}}}))}();</script>
             </div>
-            <p>But the next year, another drastic change happened: a large group of people began to support the death penalty once more. There’s only been one similar fluctuation to 2022 during the 50 year period: 1982, where support grew as just over 1,000 people were on death row at the time. After 43% opposed the death penalty in 2021, 36.7% opposed it just a year later. 
-Capital punishment support could have just been normalizing after one of the most life-changing years in history, the spike showing just how different life was when a global pandemic was happening. 
-The conversation of the death penalty and the ethics behind the act continues. In September, the state of Missouri executed Marcellus Williams for a 1998 murder. Protests took place nationwide calling for his execution to be halted, with news organizations across the country covering Williams’ story. Despite efforts to stop the procedure from both prosecutors, the victim’s family and many Americans, Missouri Gov. Mike Parson dismissed clemency and let his execution go on. He died on September 24, 2024, and was the 100th person to be executed in the state since 1989, according to the Death Penalty Information Center.
-As the issue remains highly-contested, the public’s opinion will continue to ebb and flow-- unless a stark change hits the nation. 
 
-       The github to this story's data can be found at: https://github.com/amethystmart/death_penalty     
-            </p>
+            <p class="mb-8">Capital punishment comes across as a cut and dry issue for Americans– many laying along party lines, with Democrats vastly disavowing the act as Republicans embrace it. Although the issue seems simple for many across the nation, it has been one of the most hair splitting topics in American history, an ebbing and flowing social issue that has changed with an extraordinarily complex story. Although the trend has over time shown a slowly growing opposition, 2021 showed a sharp increase in those who believed capital punishment is not the answer.</p>
 
+            <p class="mb-8">The year prior, 2020, was a time of radical change in the country. The United States, alongside the world, faced a global pandemic that no one was prepared for. The World Health Organization estimated a death toll of at least 3,000,000 people that year. It was also a period of reflection in the country's systems. George Floyd, a man who was killed by a police officer, brought to light social issues, and how it intersects with our governmental systems. People wanted change, and right then.</p>
+
+            <p class="mb-8">For 50 years, the General Social Survey has asked U.S. adults: Should death penalty be allowed for murder? In 2021, something did change among those surveyed: the GSS data showed a large increase opposing capital punishment– in fact, the lowest ever recorded since collection began in 1972.</p>
+
+            <p class="mb-8">Although the reasoning may never be clear on why support for capital punishment plummeted during that year, over 2,400 people were on death row at the time.</p>
+
+            <div class="visualization mb-12">
+                <iframe title="Less inmates on death row, but no sign of stopping" aria-label="Interactive line chart" id="datawrapper-chart-6stlk" src="https://datawrapper.dwcdn.net/6stlk/2/" scrolling="no" frameborder="0" style="width: 100%; border: none;" height="438" data-external="1"></iframe>
+                <script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r=0;r<e.length;r++)if(e[r].contentWindow===a.source){var i=a.data["datawrapper-height"][t]+"px";e[r].style.height=i}}}))}();</script>
+            </div>
+
+            <p class="mb-8">But the next year, another drastic change happened: a large group of people began to support the death penalty once more. There's only been one similar fluctuation to 2022 during the 50 year period: 1982, where support grew as just over 1,000 people were on death row at the time. After 43% opposed the death penalty in 2021, 36.7% opposed it just a year later.</p>
+
+            <p class="mb-8">Capital punishment support could have just been normalizing after one of the most life-changing years in history, the spike showing just how different life was when a global pandemic was happening.</p>
+
+            <p class="mb-8">The conversation of the death penalty and the ethics behind the act continues. In September, the state of Missouri executed Marcellus Williams for a 1998 murder. Protests took place nationwide calling for his execution to be halted, with news organizations across the country covering Williams' story. Despite efforts to stop the procedure from both prosecutors, the victim's family and many Americans, Missouri Gov. Mike Parson dismissed clemency and let his execution go on. He died on September 24, 2024, and was the 100th person to be executed in the state since 1989, according to the Death Penalty Information Center.</p>
+
+            <p class="mb-8">As the issue remains highly-contested, the public's opinion will continue to ebb and flow-- unless a stark change hits the nation.</p>
+
+            <p class="mt-12 pt-6 border-t border-black">The github to this story's data can be found at: <a href="https://github.com/amethystmart/death_penalty" class="underline hover:bg-black hover:text-yellow-50" target="_blank">https://github.com/amethystmart/death_penalty</a></p>
         </article>
-    </div>
+    </main>
 
-    <footer>
-        <p>© 2025 Amethyst Martinez | Journalist & Data Storyteller</p>
-        <p>Contact: amethystmartinez22@gmail.com</p>
+    <footer class="border-t-2 border-black py-8 mt-16">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <p class="mb-2">© 2025 Amethyst Martinez | Journalist & Data Storyteller</p>
+            <p>Contact: amethystmartinez22@gmail.com</p>
+        </div>
     </footer>
 </body>
 </html>
