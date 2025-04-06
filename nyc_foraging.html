@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urban Foraging in NYC: Finding Nature's Bounty</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap');
+        
+        body {
+            font-family: 'Courier Prime', monospace;
+        }
+        
+        .visualization {
+            margin: 2rem 0;
+            width: 100%;
+        }
+        
+        iframe {
+            width: 100%;
+            border: 1px solid black;
+            background: white;
+        }
+        
+        /* Scrollytelling specific styles */
+        .section {
+            min-height: 100vh;
+            padding: 4rem 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s, transform 0.8s;
+        }
+        
+        .section.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .img-section {
+            height: 50vh;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            border-top: 2px solid black;
+            border-bottom: 2px solid black;
+        }
+        
+        .chart-container {
+            width: 100%;
+            height: 400px;
+            margin: 2rem 0;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid black;
+        }
+        
+        @media (max-width: 768px) {
+            .chart-container {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-yellow-50 text-black">
+    <header class="border-b-2 border-black">
+        <div class="max-w-4xl mx-auto px-6 py-16 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">Urban Foraging in NYC: Finding Nature's Bounty</h1>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto">
+        <a href="index.html" class="inline-block mx-6 my-8 border-b-2 border-black hover:bg-black hover:text-yellow-50 transition-colors px-2">← Back to Portfolio</a>
+
+        <div class="scroll-container">
+            <!-- Introduction Section -->
+            <div class="section" id="introduction">
+                <div class="prose max-w-3xl mx-auto px-6">
+                    <h2 class="text-3xl font-bold mb-8 border-b border-black pb-2">A Hidden World of Wild Edibles</h2>
+                    <p class="mb-8">In the midst of New York City's towering skyscrapers and bustling streets lies a surprising abundance of edible plants, fungi, and other forageable foods. Urban foraging has experienced a renaissance in recent years, with more and more New Yorkers reconnecting with nature through the ancient practice of gathering wild foods.</p>
+                    <p class="mb-8">From the lush expanses of Central Park to the hidden corners of community gardens in Brooklyn, the city offers a diverse array of wild edibles throughout the changing seasons. This journey explores the what, where, when, and how of urban foraging in America's largest city.</p>
+                    
+                    <div class="visualization mb-12">
+                        <div class="chart-container">
+                            <p class="text-center font-bold">[Chart 1: Seasonal Availability of Common NYC Forageable Plants]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Image Break -->
+            <div class="img-section" style="background-image: url('/api/placeholder/800/600')"></div>
+            
+            <!-- Seasonal Findings Section -->
+            <div class="section" id="seasonal">
+                <div class="prose max-w-3xl mx-auto px-6">
+                    <h2 class="text-3xl font-bold mb-8 border-b border-black pb-2">Seasonal Treasures</h2>
+                    
+                    <div class="grid md:grid-cols-2 gap-8 mb-8">
+                        <div>
+                            <h3 class="text-xl font-bold mb-4">Spring</h3>
+                            <p class="mb-4">As the city thaws from winter, spring brings a burst of edible greens. Tender dandelion leaves emerge in parks and empty lots, while garlic mustard and field garlic can be found along trails and woodland edges. Japanese knotweed shoots provide a rhubarb-like vegetable, and the ephemeral but delectable morel mushrooms occasionally appear in wooded areas.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-4">Summer</h3>
+                            <p class="mb-4">Summer's warmth ushers in a bounty of berries and fruits. Mulberries drop from urban trees, blackberries and wineberries can be found along park edges, and juneberries (serviceberries) offer their sweet flavor. Purslane grows between sidewalk cracks, providing a nutritious edible green rich in omega-3 fatty acids.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-8 mb-8">
+                        <div>
+                            <h3 class="text-xl font-bold mb-4">Fall</h3>
+                            <p class="mb-4">Autumn's harvest includes nuts and fungi. Black walnuts and acorns fall in parks, while hen of the woods, chicken of the woods, and oyster mushrooms emerge on trees and fallen logs. Autumn olive berries and crabapples provide tart fruits for preserves and jellies.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-4">Winter</h3>
+                            <p class="mb-4">Even in winter, foragers can find spicebush twigs for tea, conifer needles rich in vitamin C, and persistent rosehips. Cold weather often improves the flavor of certain greens like chickweed, which can persist through mild winters.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="visualization mb-12">
+                        <div class="chart-container">
+                            <p class="text-center font-bold">[Chart 2: Most Common Foraged Items by NYC Borough]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Location Section -->
+            <div class="section" id="locations">
+                <div class="prose max-w-3xl mx-auto px-6">
+                    <h2 class="text-3xl font-bold mb-8 border-b border-black pb-2">Where to Forage</h2>
+                    <p class="mb-8">New York City offers numerous locations for ethical foraging, though regulations vary by park and season. Always research rules before foraging, as some areas prohibit the practice or limit what can be harvested.</p>
+                    
+                    <div class="visualization mb-12">
+                        <div class="chart-container">
+                            <p class="text-center font-bold">[Map: Popular Foraging Locations in NYC]</p>
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-8 mb-8">
+                        <div>
+                            <h3 class="text-xl font-bold mb-4">Best Locations</h3>
+                            <ul class="list-disc pl-5 mb-4 space-y-2">
+                                <li>Prospect Park (Brooklyn)</li>
+                                <li>Inwood Hill Park (Manhattan)</li>
+                                <li>Forest Park (Queens)</li>
+                                <li>Pelham Bay Park (Bronx)</li>
+                                <li>Greenbelt (Staten Island)</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-4">Community Resources</h3>
+                            <ul class="list-disc pl-5 mb-4 space-y-2">
+                                <li>NYC Foraging Tours</li>
+                                <li>Brooklyn Botanic Garden Workshops</li>
+                                <li>Urban Park Rangers Programs</li>
+                                <li>Community Garden Networks</li>
+                                <li>Local Foraging Meetup Groups</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Image Break -->
+            <div class="img-section" style="background-image: url('/api/placeholder/800/600')"></div>
+            
+            <!-- Ethics Section -->
+            <div class="section" id="ethics">
+                <div class="prose max-w-3xl mx-auto px-6">
+                    <h2 class="text-3xl font-bold mb-8 border-b border-black pb-2">Foraging Ethics & Safety</h2>
+                    <p class="mb-8">Urban foraging requires careful attention to both ethics and safety considerations. The city environment presents unique challenges not found in wilderness foraging.</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-8 mb-8">
+                        <div>
+                            <h3 class="text-xl font-bold mb-4">Ethical Guidelines</h3>
+                            <p class="mb-4">Never harvest rare or protected species. Take only what you need and never more than 10% of what you find. Avoid damaging plants when harvesting. Respect park regulations and private property. Share knowledge but protect sensitive locations from overharvesting.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-4">Safety Considerations</h3>
+                            <p class="mb-4">Be aware of potential pollution sources. Avoid foraging near roadways, railroad tracks, or areas with known contamination. Always be 100% certain of plant identification before consuming. Consider lead and other heavy metals in soil. Wash all foraged items thoroughly.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="visualization mb-12">
+                        <div class="chart-container">
+                            <p class="text-center font-bold">[Chart 3: Soil Safety Testing Results from NYC Parks]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Community Section -->
+            <div class="section" id="community">
+                <div class="prose max-w-3xl mx-auto px-6">
+                    <h2 class="text-3xl font-bold mb-8 border-b border-black pb-2">The Urban Foraging Community</h2>
+                    <p class="mb-8">NYC's foraging community is diverse and growing, bringing together people from all backgrounds who share a passion for connecting with nature in the urban environment. From professional chefs seeking unique ingredients to families teaching children about food sources, urban foragers represent the city's multicultural tapestry.</p>
+                    <p class="mb-8">Community knowledge-sharing is central to the practice, with experienced foragers often mentoring newcomers on identification, sustainable harvesting techniques, and food preparation. This passing of knowledge helps maintain traditions while adapting them to urban environments.</p>
+                    
+                    <div class="visualization mb-12">
+                        <div class="chart-container">
+                            <p class="text-center font-bold">[Chart 4: Growth of NYC Foraging Community 2010-2025]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Conclusion -->
+            <div class="section" id="conclusion">
+                <div class="prose max-w-3xl mx-auto px-6">
+                    <h2 class="text-3xl font-bold mb-8 border-b border-black pb-2">Reconnecting with Our Foraging Roots</h2>
+                    <p class="mb-8">Urban foraging offers more than just free food—it provides a meaningful way to reconnect with natural cycles, develop self-reliance, and see the city through new eyes. As interest grows and climate challenges mount, these skills may become increasingly valuable.</p>
+                    <p class="mb-8">Whether you're a curious beginner or an experienced forager, New York City offers abundant opportunities to discover the wild foods hiding in plain sight. By approaching the practice with knowledge, ethics, and community connection, urban foraging can transform your relationship with both food and the city itself.</p>
+                    
+                    <p class="mt-12 pt-6 border-t border-black">The github to this story's data can be found at: <a href="https://github.com/username/nyc-foraging" class="underline hover:bg-black hover:text-yellow-50" target="_blank">https://github.com/username/nyc-foraging</a></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="border-t-2 border-black py-8 mt-16">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <p class="mb-2">© 2025 Amethyst Martinez | Journalist & Data Storyteller</p>
+            <p>Contact: amethystmartinez22@gmail.com</p>
+        </div>
+    </footer>
+
+    <script>
+        // Intersection Observer for scroll animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.section');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, {
+                threshold: 0.2
+            });
+            
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
