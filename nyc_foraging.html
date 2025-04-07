@@ -5,11 +5,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Urban Foraging in NYC: Finding Nature's Bounty</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap');
-        
         body {
+            margin: 0;
+            font-size: 20px;
             font-family: 'Courier Prime', monospace;
+            text-rendering: optimizeLegibility;
+        }
+        
+        .content {
+            max-width: 640px;
+            margin: auto;
+        }
+
+        .header {
+            padding: 3em 0;
+        }
+
+        a {
+            color: #f05349;
+        }
+
+        .footer {
+            background: #f4f4f4;
+            text-align: center;
+            font-size: 0.8em;
+            margin-top: 4em;
+            padding: 4em 0;
+        }
+
+        figure {
+            margin: 0;
+            padding-bottom: 1.2em;
+        }
+
+        figcaption {
+            font-size: 0.8em;
+            text-align: center;
+            margin-top: 0.5em;
+            color: #666;
+        }
+
+        h1 {
+            font-family: 'Lora', Georgia, serif;
+            font-weight: bold;
+            font-size: 3em;
+            line-height: 1.1;
+        }
+
+        .subhead {
+            font-family: 'Lora', Georgia, serif;
+        }
+
+        .with-image-bg {
+            position: relative;
+            background-size: cover;
+            margin-bottom: 2em;
+
+            /* Center everything inside */
+            min-height: 70svh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            /* White text with a shadow */
+            color: white;
+            text-shadow: 0px 0px 30px black,
+                0px 0px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .with-image-bg {
+            background-image: url('/api/placeholder/1200/800');
+            background-position: center;
         }
         
         .visualization {
@@ -40,15 +112,6 @@
             transform: translateY(0);
         }
         
-        .img-section {
-            height: 50vh;
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            border-top: 2px solid black;
-            border-bottom: 2px solid black;
-        }
-        
         .chart-container {
             width: 100%;
             height: 400px;
@@ -64,15 +127,23 @@
             .chart-container {
                 height: 300px;
             }
+            
+            .content {
+                padding-left: 0.5em;
+                padding-right: 0.5em;
+            }
         }
     </style>
 </head>
+
 <body class="bg-yellow-50 text-black">
-    <header class="border-b-2 border-black">
-        <div class="max-w-4xl mx-auto px-6 py-16 text-center">
-            <h1 class="text-4xl md:text-5xl font-bold mb-6">Urban Foraging in NYC: Finding Nature's Bounty</h1>
+    <!-- Hero section with background image -->
+    <div class="header with-image-bg">
+        <div class="content">
+            <h1>Urban Foraging in NYC: Finding Nature's Bounty</h1>
+            <p class="subhead">Discovering wild edibles in America's largest city</p>
         </div>
-    </header>
+    </div>
 
     <main class="max-w-4xl mx-auto">
         <a href="index.html" class="inline-block mx-6 my-8 border-b-2 border-black hover:bg-black hover:text-yellow-50 transition-colors px-2">← Back to Portfolio</a>
@@ -92,9 +163,6 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- Image Break -->
-            <div class="img-section" style="background-image: url('/api/placeholder/800/600')"></div>
             
             <!-- Seasonal Findings Section -->
             <div class="section" id="seasonal">
@@ -131,16 +199,16 @@
                 </div>
             </div>
             
-            <!-- Location Section -->
+            <!-- Location Section with Datawrapper Map -->
             <div class="section" id="locations">
                 <div class="prose max-w-3xl mx-auto px-6">
                     <h2 class="text-3xl font-bold mb-8 border-b border-black pb-2">Where to Forage</h2>
                     <p class="mb-8">New York City offers numerous locations for ethical foraging, though regulations vary by park and season. Always research rules before foraging, as some areas prohibit the practice or limit what can be harvested.</p>
                     
                     <div class="visualization mb-12">
-                        <div class="chart-container">
-                            <p class="text-center font-bold">[Map: Popular Foraging Locations in NYC]</p>
-                        </div>
+                        <iframe title="A Community-Driven Look into Wild Edibles in New York City" aria-label="Map" id="datawrapper-chart-87WbD" src="https://datawrapper.dwcdn.net/87WbD/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="781" data-external="1"></iframe>
+                        <script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}}))}();
+                        </script>
                     </div>
                     
                     <div class="grid md:grid-cols-2 gap-8 mb-8">
@@ -167,9 +235,6 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- Image Break -->
-            <div class="img-section" style="background-image: url('/api/placeholder/800/600')"></div>
             
             <!-- Ethics Section -->
             <div class="section" id="ethics">
