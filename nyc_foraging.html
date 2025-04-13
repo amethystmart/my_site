@@ -83,7 +83,7 @@
         }
 
         .with-image-bg {
-            background-image: url('header.jpg'); /* Replace with your actual image path */
+            background-image: url('your-hero-image.jpg'); /* Replace with your actual image path */
             background-position: center;
         }
         
@@ -199,7 +199,7 @@
         <!-- Scrollytelling seasonal section -->
         <section id="seasonal-scrolly" class="scrolly-container">
             <div class="sticky-thing">
-                <img src="scroll.jpg" id="seasonal-image"><!-- Replace with your default seasonal image -->
+                <img src="scroll.jpg" id="seasonal-image"><!-- Use your single seasonal image here -->
             </div>
             <div class="steps-container">
                 <div class="step" id="spring-step">
@@ -293,7 +293,7 @@
 
     <!-- Full bleed photo section at the bottom -->
     <div class="w-full h-screen relative overflow-hidden">
-        <img src="wildman.jpg" alt="NYC Foraging" class="w-full h-full object-cover">
+        <img src="full-bleed-bottom.jpg" alt="NYC Foraging" class="w-full h-full object-cover">
         <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30">
             <p class="text-white text-xl md:text-3xl max-w-2xl text-center px-4 font-serif">
                 "The city offers a bounty of wild edibles for those who know where to look."
@@ -336,7 +336,7 @@
                     }
                 });
             
-            // Second scrollytelling section - Locations
+            
             locationsScroller
                 .setup({
                     parent: document.querySelector("#locations-scrolly"),
@@ -356,33 +356,12 @@
                     }
                 });
             
-            // Handle resize for both scrollers
+            
             window.addEventListener("resize", function() {
                 seasonalScroller.resize();
                 locationsScroller.resize();
             });
 
-            // Seasonal section image changes
-            d3.select("#spring-step").on('stepin', (e) => {
-                d3.select("#seasonal-image").attr("src", "spring-foraging.jpg") // Replace with your spring image
-            });
-
-            d3.select("#summer-step").on('stepin', (e) => {
-                d3.select("#seasonal-image").attr("src", "summer-foraging.jpg") // Replace with your summer image
-            });
-
-            d3.select("#fall-step").on('stepin', (e) => {
-                d3.select("#seasonal-image").attr("src", "fall-foraging.jpg") // Replace with your fall image
-            });
-
-            d3.select("#winter-step").on('stepin', (e) => {
-                d3.select("#seasonal-image").attr("src", "winter-foraging.jpg") // Replace with your winter image
-            });
-
-            // For the locations section, we're keeping the Datawrapper map visible throughout
-            // This allows readers to see the map while reading about specific locations
-            
-            // Initialize by triggering the first step in each section
             const springStep = document.getElementById("spring-step");
             const locStep1 = document.getElementById("loc-step1");
             
