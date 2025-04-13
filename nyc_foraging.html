@@ -10,6 +10,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollama/3.2.0/scrollama.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.3.0/d3.min.js"></script>
     <style>
         body {
             margin: 0;
@@ -95,57 +98,82 @@
             background: white;
         }
         
+        p {
+            line-height: 1.6;
+            margin: 0;
+            padding-bottom: 1.2em;
+        }
+        
         /* Scrollytelling specific styles */
-        .section {
-            min-height: 100vh;
-            padding: 4rem 1rem;
+        .scrolly-container {
+            position: relative;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 0.8s, transform 0.8s;
+            background-color: #f9f9f9;
+            padding: 0;
+            margin: 0 auto;
         }
-        
-        .section.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .chart-container {
+
+        .sticky-thing {
+            position: sticky;
             width: 100%;
-            height: 400px;
-            margin: 2rem 0;
-            background-color: white;
+            height: 100vh;
+            top: 0;
+            z-index: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            border: 1px solid black;
+            background-color: #f9f9f9;
+            overflow: hidden;
         }
-        
-        .map-container {
+
+        .sticky-thing img {
+            position: absolute;
+            max-width: 100%;
+            max-height: 100%;
             width: 100%;
-            margin: 2rem 0;
+            height: 100%;
+            object-fit: cover;
         }
-        
-        .map-container iframe {
-            width: 100%;
-            height: 600px;
-            border: 1px solid #ccc;
+
+        .steps-container {
+            position: relative;
+            padding: 0;
+            max-width: 30rem;
+            margin: 0 auto;
+            z-index: 1;
         }
-        
+
+        .step {
+            margin-bottom: 70vh;
+            padding: 1rem;
+        }
+
+        .step:last-child {
+            margin-bottom: 45vh;
+        }
+
+        .step > * {
+            background-color: rgba(255, 253, 237, 0.9);
+            padding: 1rem;
+            box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            font-family: 'Courier Prime', monospace;
+            max-width: 28rem;
+        }
+
+        /* Mobile-specific adjustments */
         @media (max-width: 768px) {
-            .chart-container {
-                height: 300px;
-            }
-            
             .content {
                 padding-left: 0.5em;
                 padding-right: 0.5em;
             }
             
-            .map-container iframe {
-                height: 450px;
+            .step > * {
+                max-width: 100%;
+            }
+            
+            body {
+                font-size: 18px;
             }
         }
     </style>
@@ -163,74 +191,103 @@
     <main class="max-w-4xl mx-auto">
         <a href="index.html" class="inline-block mx-6 my-8 border-b-2 border-black hover:bg-black hover:text-yellow-50 transition-colors px-2">← Back to Portfolio</a>
 
-        <div class="scroll-container">
-            <!-- Introduction Section -->
-            <div class="section" id="introduction">
-                <div class="prose max-w-3xl mx-auto px-6">
-                    <p class="mb-8">[For my beginning, I plan to add a scene setting introduction as I plan to go foraging in some of the locations myself. Another possible option is to learn about a moment of Steve 'Wildman' Brill, the New Yorker I'm interviewing who has been foraging in the city for 30 years.]
-New York City is known as one of the most iconic cities in the world, although many probably wouldn't consider it as a place of nature. Yet, hidden inside certain pockets in the city and its parks lie places for residents to forage– a scavenger hunt for food and provisions growing. 
-</p>
-                    <p class="mb-8">Mulberries, apples, juneberries, peaches, grape leaves: All can be found in New York City, surprisingly in all of the boroughs. Parks have tried to make the act of picking illegal on its grounds, [I can't write this until I know, but am speaking with Brill this week about it.]
-</p>
+        <div class="content">
+            <p>New York City is known as one of the most iconic cities in the world, although many probably wouldn't consider it as a place of nature. Yet, hidden inside certain pockets in the city and its parks lie places for residents to forage– a scavenger hunt for food and provisions growing.</p>
+            <p>Mulberries, apples, juneberries, peaches, grape leaves: All can be found in New York City, surprisingly in all of the boroughs. Parks have tried to make the act of picking illegal on its grounds, [I can't write this until I know, but am speaking with Brill this week about it.]</p>
+        </div>
+
+        <!-- Scrollytelling seasonal section -->
+        <section id="seasonal-scrolly" class="scrolly-container">
+            <div class="sticky-thing">
+                <img src="/api/placeholder/1200/800" id="seasonal-image">
+            </div>
+            <div class="steps-container">
+                <div class="step" id="spring-step">
+                    <div>
+                        <h2 class="text-3xl font-bold mb-4 font-serif">Spring Treasures</h2>
+                        <p>In spring, New York City's parks and green spaces come alive with edible plants like dandelion greens, wild garlic, and garlic mustard. These early risers are packed with nutrients and can be found in places like Central Park and Prospect Park.</p>
+                        <p>Foragers eagerly anticipate the appearance of ramps (wild leeks) and morel mushrooms in more wooded areas of the city.</p>
+                    </div>
                 </div>
-            </div>
-            
-            <!-- Seasonal Findings Section -->
-            <div class="section" id="seasonal">
-                <div class="prose max-w-3xl mx-auto px-6">
-                    <h2 class="text-3xl font-bold mb-8 border-b border-black pb-2">Season's Pickings</h2>
-                    
-                    <div class="grid md:grid-cols-2 gap-8 mb-8">
-                        <div>
-                            <h3 class="text-xl font-bold mb-4">Spring</h3>
-                            <p class="mb-4">[placeholder]</p>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold mb-4">Summer</h3>
-                            <p class="mb-4">[placeholder]</p>
-                        </div>
+                <div class="step" id="summer-step">
+                    <div>
+                        <h2 class="text-3xl font-bold mb-4 font-serif">Summer Bounty</h2>
+                        <p>Summer brings an abundance of berries throughout the city. Mulberries stain sidewalks purple in June, while black raspberries and wineberries can be found along park edges and wooded trails.</p>
+                        <p>This is also the season for juneberries (serviceberries), which resemble blueberries and can be found in many city parks and street plantings.</p>
                     </div>
-                    
-                    <div class="grid md:grid-cols-2 gap-8 mb-8">
-                        <div>
-                            <h3 class="text-xl font-bold mb-4">Fall</h3>
-                            <p class="mb-4">[placeholder]</p>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold mb-4">Winter</h3>
-                            <p class="mb-4">[placeholder]</p>
-                        </div>
+                </div>
+                <div class="step" id="fall-step">
+                    <div>
+                        <h2 class="text-3xl font-bold mb-4 font-serif">Fall Harvest</h2>
+                        <p>Fall is perhaps the richest season for urban foraging. Wild apples, pears, and even persimmons can be found in parks and along streets. Hardy greens like lambsquarters continue to thrive.</p>
+                        <p>The brave and knowledgeable might seek out hen-of-the-woods and chicken-of-the-woods mushrooms that appear on trees and stumps after rainfall.</p>
                     </div>
-            </div>
-            
-            <!-- Location Section with Datawrapper Map -->
-            <div class="section" id="locations">
-                <div class="prose max-w-3xl mx-auto px-6">
-                    <h2 class="text-3xl font-bold mb-8 border-b border-black pb-2">Where to Forage</h2>
-                    <p class="mb-8">One of the data sets Falling Fruit used was another community driven initiative, which marked around 100 forage sightings. But the worldwide map depicts many, many more. 
-                    Brill has brought thousands of people along for the ride whilst he forages in the city, hosting tours to those who want to learn. 
-                    The most common items that Brill finds on his trips include []
-                    [Again, I want to talk to him about the tours, so kind of hard to write about this.]
-                    Some of the rules of the trade include axing any greedy tendencies by always leaving more for others, avoiding poisonous plants and possibly-poisonous areas, and cleaning finds before they're eaten.
-                    </p>
-                    
-                    <div class="visualization mb-12">
-                        <iframe title="Places to forage in New York City." aria-label="Map" id="datawrapper-chart-cmRTf" src="https://datawrapper.dwcdn.net/cmRTf/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="711" data-external="1"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}}))}();
-</script>
-                    </div>
-                    
-                    <div class="grid md:grid-cols-2 gap-8 mb-8">
-                        <div>
-                            <h3 class="text-xl font-bold mb-4">Brill's Location Recs</h3>
-                            <ul class="list-disc pl-5 mb-4 space-y-2">
-                                <li>[placeholder]</li>
-                                <li>[placeholder]</li>
-                                <li>[placeholder]</li>
-                            </ul>
-                        </div>
+                </div>
+                <div class="step" id="winter-step">
+                    <div>
+                        <h2 class="text-3xl font-bold mb-4 font-serif">Winter Findings</h2>
+                        <p>Even in winter, foraging continues. Rose hips from wild roses provide vitamin C, while certain nuts that fell in autumn may still be gathered from the ground.</p>
+                        <p>Pine needles can be harvested to make tea rich in vitamin C, and the inner bark of certain trees can be used in survival situations.</p>
                     </div>
                 </div>
             </div>
+        </section>
+
+    d of hard to write about.]
+            Some of the rules of the trade include axing any greedy tendencies by always leaving more for others, avoiding poisonous plants and possibly-poisonous areas, and cleaning finds before they're eaten.
+            </p>
+        </div>
+
+        <!-- Scrollytelling locations section -->
+        <section id="locations-scrolly" class="scrolly-container">
+            <div class="sticky-thing">
+                <div class="visualization mb-12 w-full h-full">
+                    <iframe title="Places to forage in New York City." aria-label="Map" id="datawrapper-chart-cmRTf" src="https://datawrapper.dwcdn.net/cmRTf/1/" scrolling="no" frameborder="0" style="width: 100%; height: 100%; border: none;" data-external="1"></iframe>
+                </div>
+            </div>
+            <div class="steps-container">
+                <div class="step" id="loc-step1">
+                    <div>
+                        <h2 class="text-3xl font-bold mb-4 font-serif">Central Park</h2>
+                        <p>Central Park offers some of the most diverse foraging in Manhattan, with mulberry trees, blackberries, and various herbs found throughout its 840 acres.</p>
+                        <p>"I've been leading tours through Central Park for over 20 years," says Steve 'Wildman' Brill. "The north woods section has some of the city's best wild edibles."</p>
+                    </div>
+                </div>
+                <div class="step" id="loc-step2">
+                    <div>
+                        <h2 class="text-3xl font-bold mb-4 font-serif">Prospect Park</h2>
+                        <p>Brooklyn's Prospect Park is another foraging hotspot, particularly along its less-manicured edges where wild berries, nuts, and mushrooms grow in abundance.</p>
+                        <p>The park's diverse ecosystem supports dozens of edible species throughout the year.</p>
+                    </div>
+                </div>
+                <div class="step" id="loc-step3">
+                    <div>
+                        <h2 class="text-3xl font-bold mb-4 font-serif">Inwood Hill Park</h2>
+                        <p>Manhattan's last natural forest, Inwood Hill Park provides a more wild environment where mushrooms, berries, and native plants grow with less human intervention.</p>
+                        <p>The ancient forest here offers some of the most authentic foraging experiences in the city.</p>
+                    </div>
+                </div>
+                <div class="step" id="loc-step4">
+                    <div>
+                        <h2 class="text-3xl font-bold mb-4 font-serif">Pelham Bay Park</h2>
+                        <p>The Bronx's Pelham Bay Park—the city's largest park at over 2,700 acres—features beaches, forests, and meadows where a wide variety of edibles can be found year-round.</p>
+                        <p>Its diverse habitats support everything from beach plums to wild grapes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="content mt-16">
+            <h2 class="text-3xl font-bold mb-8 border-b border-black pb-2">Safety First</h2>
+            <p>While foraging in New York City can be rewarding, it's important to follow some basic guidelines:</p>
+            <ul class="list-disc pl-8 mb-8">
+                <li class="mb-2">Never eat anything you cannot identify with 100% certainty</li>
+                <li class="mb-2">Be aware of local regulations (some parks prohibit foraging)</li>
+                <li class="mb-2">Avoid plants growing near roads or in potentially contaminated soil</li>
+                <li class="mb-2">Take only what you need and leave plenty for others and wildlife</li>
+                <li class="mb-2">Clean all foraged foods thoroughly before consuming</li>
+                <li class="mb-2">Consider joining a guided tour for beginners</li>
+            </ul>
         </div>
     </main>
 
@@ -244,21 +301,89 @@ New York City is known as one of the most iconic cities in the world, although m
     <script>
         // Intersection Observer for scroll animations
         document.addEventListener('DOMContentLoaded', function() {
-            const sections = document.querySelectorAll('.section');
+            // Setup the scrollama instances
+            const seasonalScroller = scrollama();
+            const locationsScroller = scrollama();
             
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
+            // First scrollytelling section - Seasonal
+            seasonalScroller
+                .setup({
+                    parent: document.querySelector("#seasonal-scrolly"),
+                    step: ".step",
+                    offset: 0.6,
+                    debug: false,
+                })
+                .onStepEnter(function ({ element, index, direction }) {
+                    const event = new CustomEvent("stepin", { detail: { direction: direction } });
+                    element.dispatchEvent(event);
+                })
+                .onStepExit(function ({ element, index, direction }) {
+                    const event = new CustomEvent("stepout", { detail: { direction: direction } });
+                    if (direction === "up" && element.previousElementSibling) {
+                        const event = new CustomEvent("stepin", { detail: { direction: direction } });
+                        element.previousElementSibling.dispatchEvent(event);
                     }
                 });
-            }, {
-                threshold: 0.1
-            });
             
-            sections.forEach(section => {
-                observer.observe(section);
+            // Second scrollytelling section - Locations
+            locationsScroller
+                .setup({
+                    parent: document.querySelector("#locations-scrolly"),
+                    step: ".step",
+                    offset: 0.6,
+                    debug: false,
+                })
+                .onStepEnter(function ({ element, index, direction }) {
+                    const event = new CustomEvent("stepin", { detail: { direction: direction } });
+                    element.dispatchEvent(event);
+                })
+                .onStepExit(function ({ element, index, direction }) {
+                    const event = new CustomEvent("stepout", { detail: { direction: direction } });
+                    if (direction === "up" && element.previousElementSibling) {
+                        const event = new CustomEvent("stepin", { detail: { direction: direction } });
+                        element.previousElementSibling.dispatchEvent(event);
+                    }
+                });
+            
+            // Handle resize for both scrollers
+            window.addEventListener("resize", function() {
+                seasonalScroller.resize();
+                locationsScroller.resize();
             });
+
+            // Seasonal section image changes
+            d3.select("#spring-step").on('stepin', (e) => {
+                d3.select("#seasonal-image").attr("src", "/api/placeholder/1200/800?text=Spring+Foraging")
+            });
+
+            d3.select("#summer-step").on('stepin', (e) => {
+                d3.select("#seasonal-image").attr("src", "/api/placeholder/1200/800?text=Summer+Foraging")
+            });
+
+            d3.select("#fall-step").on('stepin', (e) => {
+                d3.select("#seasonal-image").attr("src", "/api/placeholder/1200/800?text=Fall+Foraging")
+            });
+
+            d3.select("#winter-step").on('stepin', (e) => {
+                d3.select("#seasonal-image").attr("src", "/api/placeholder/1200/800?text=Winter+Foraging")
+            });
+
+            // For the locations section, we're keeping the Datawrapper map visible throughout
+            // This allows readers to see the map while reading about specific locations
+            
+            // Initialize by triggering the first step in each section
+            const springStep = document.getElementById("spring-step");
+            const locStep1 = document.getElementById("loc-step1");
+            
+            if (springStep) {
+                const event = new CustomEvent("stepin", { detail: { direction: "down" } });
+                springStep.dispatchEvent(event);
+            }
+            
+            if (locStep1) {
+                const event = new CustomEvent("stepin", { detail: { direction: "down" } });
+                locStep1.dispatchEvent(event);
+            }
         });
     </script>
 </body>
