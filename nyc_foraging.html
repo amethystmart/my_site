@@ -65,9 +65,8 @@
             font-family: 'Lora', Georgia, serif;
         }
 
-        .with-image-bg {
+        .with-video-bg {
             position: relative;
-            background-size: cover;
             margin-bottom: 2em;
 
             /* Center everything inside */
@@ -82,9 +81,26 @@
                 0px 0px 10px rgba(0, 0, 0, 0.5);
         }
 
-        .with-image-bg {
-            background-image: url('header.jpg'); /* Replace with your actual image path */
-            background-position: center;
+        .video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .video-container video {
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
         }
         
         .visualization {
@@ -161,6 +177,19 @@
             max-width: 28rem;
         }
 
+        /* Fallback image for when video doesn't load */
+        .video-fallback {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('header.jpg');
+            background-size: cover;
+            background-position: center;
+            z-index: -2;
+        }
+
         /* Mobile-specific adjustments */
         @media (max-width: 768px) {
             .content {
@@ -180,8 +209,17 @@
 </head>
 
 <body class="bg-yellow-50 text-black">
-    <!-- Hero section with background image -->
-    <div class="header with-image-bg">
+    <!-- Hero section with background video -->
+    <div class="header with-video-bg">
+        <div class="video-container">
+            <video autoplay muted loop playsinline>
+                <source src="park_video.MOV" type="video/mp4">
+                <!-- Add additional source elements for different video formats if needed -->
+                Your browser does not support the video tag.
+            </video>
+            <!-- Fallback for when video doesn't load -->
+            <div class="video-fallback"></div>
+        </div>
         <div class="content">
             <h1> Yes, you can find some of your groceries in New York City nature. </h1>
             <p class="subhead">Discovering wild edibles in America's largest city</p>
@@ -192,8 +230,8 @@
         <a href="index.html" class="inline-block mx-6 my-8 border-b-2 border-black hover:bg-black hover:text-yellow-50 transition-colors px-2">← Back to Portfolio</a>
 
         <div class="content">
-            <p>Every weekend, Steve “Wildman” Brill makes his trek out to one of New York City’s parks to teach intrigued beginners how to forage in an urban setting. Touring residents and visitors since the 1980s, there is no doubt that he has taught thousands of people how to safely eat and cook with plants scattered around the small amount of greenery that the city has. 
-On a rainy Saturday morning in April, around 20 people showed up to learn from the Wildman in Prospect Park, Brooklyn. Things are much different than the 80s, where Brill was arrested by undercover park rangers for eating dandelion in Central Park. Although foraging is banned in the city’s parks, his dandelion-eating arrest decades ago now keeps the rangers off his tail. And despite the downpour, Brill still had an audience. 
+            <p>Every weekend, Steve "Wildman" Brill makes his trek out to one of New York City's parks to teach intrigued beginners how to forage in an urban setting. Touring residents and visitors since the 1980s, there is no doubt that he has taught thousands of people how to safely eat and cook with plants scattered around the small amount of greenery that the city has. 
+On a rainy Saturday morning in April, around 20 people showed up to learn from the Wildman in Prospect Park, Brooklyn. Things are much different than the 80s, where Brill was arrested by undercover park rangers for eating dandelion in Central Park. Although foraging is banned in the city's parks, his dandelion-eating arrest decades ago now keeps the rangers off his tail. And despite the downpour, Brill still had an audience. 
                 New York City is known as one of the most iconic cities in the world, although many probably wouldn't consider it as a place of nature. Yet, hidden inside certain pockets in the city and its parks lie places for residents to forage– a scavenger hunt for food and provisions growing.</p>
             <p>Mulberries, mugwort, grape leaves: All can be found in New York City, scattered throughout the boroughs. </p>
         </div>
@@ -235,7 +273,8 @@ On a rainy Saturday morning in April, around 20 people showed up to learn from t
             </div>
         </section>
 
-    d of hard to write about.]
+        <div class="content">
+            <p>
             Some of the rules of the trade include axing any greedy tendencies by always leaving more for others, avoiding poisonous plants and possibly-poisonous areas, and cleaning finds before they're eaten.
             </p>
         </div>
