@@ -27,7 +27,69 @@
         }
 
         .header {
-            padding: 3em 0;
+            position: relative;
+            height: 70vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            margin-bottom: 2em;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            text-shadow: 0px 0px 30px black, 0px 0px 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            padding: 2em;
+        }
+
+        .header-video-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background-color: #333;
+        }
+
+        .header-video-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.3);
+            z-index: 2;
+        }
+
+        #header-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        /* Explicitly hide video controls across browsers */
+        video::-webkit-media-controls-enclosure {
+            display:none !important;
+        }
+        
+        video::-webkit-media-controls {
+            display:none !important;
+        }
+        
+        video::-webkit-media-controls-overlay-play-button {
+            display:none !important;
         }
 
         a {
@@ -63,45 +125,6 @@
 
         .subhead {
             font-family: 'Lora', Georgia, serif;
-        }
-
-        .with-video-bg {
-            position: relative;
-            margin-bottom: 2em;
-
-            /* Center everything inside */
-            min-height: 70svh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            /* White text with a shadow */
-            color: white;
-            text-shadow: 0px 0px 30px black,
-                0px 0px 10px rgba(0, 0, 0, 0.5);
-        }
-
-        .video-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: -1;
-        }
-
-        .video-container video {
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            object-fit: cover;
-            pointer-events: none;
         }
         
         .visualization {
@@ -178,19 +201,6 @@
             max-width: 28rem;
         }
 
-        /* Fallback image for when video doesn't load */
-        .video-fallback {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('header.jpg');
-            background-size: cover;
-            background-position: center;
-            z-index: -2;
-        }
-
         /* Mobile-specific adjustments */
         @media (max-width: 768px) {
             .content {
@@ -210,22 +220,20 @@
 </head>
 
 <body class="bg-yellow-50 text-black">
-    <!-- Hero section with background video -->
-    <div class="header with-video-bg">
-        <div class="video-container">
-            <video autoplay muted loop playsinline disablePictureInPicture>
-                <source src="/api/placeholder/400/320" type="video/mp4">
-                <!-- Add additional source elements for different video formats if needed -->
-                Your browser does not support the video tag.
-            </video>
-            <!-- Fallback for when video doesn't load -->
-            <div class="video-fallback"></div>
+    <!-- Hero section with video background - completely restructured -->
+    <header class="header">
+        <div class="header-video-wrapper">
+            <!-- Note: we're using JS to create the video element to avoid browser controls -->
+            <div id="video-container"></div>
+            <!-- Fallback image shown if video doesn't load -->
+            <div class="absolute inset-0 bg-cover bg-center z-0" style="background-image: url('header.jpg');"></div>
         </div>
-        <div class="content">
-            <h1> Yes, you can find some of your groceries in New York City nature. </h1>
+        
+        <div class="header-content">
+            <h1>Yes, you can find some of your groceries in New York City nature.</h1>
             <p class="subhead">Discovering wild edibles in America's largest city</p>
         </div>
-    </div>
+    </header>
 
     <main class="max-w-4xl mx-auto">
         <a href="index.html" class="inline-block mx-6 my-8 border-b-2 border-black hover:bg-black hover:text-yellow-50 transition-colors px-2">← Back to Portfolio</a>
@@ -352,8 +360,38 @@ On a rainy Saturday morning in April, around 20 people showed up to learn from t
     </footer>
 
     <script>
-        // Intersection Observer for scroll animations
+        // Create video element programmatically to avoid browser controls
         document.addEventListener('DOMContentLoaded', function() {
+            // Create video element with JavaScript
+            const videoContainer = document.getElementById('video-container');
+            const video = document.createElement('video');
+            
+            // Set all attributes
+            video.id = 'header-video';
+            video.muted = true;
+            video.autoplay = true;
+            video.loop = true;
+            video.playsInline = true;
+            
+            // Make it absolutely unclickable
+            video.style.pointerEvents = 'none';
+            
+            // Create source element
+            const source = document.createElement('source');
+            source.src = '/api/placeholder/400/320';
+            source.type = 'video/mp4';
+            
+            // Append elements
+            video.appendChild(source);
+            videoContainer.appendChild(video);
+            
+            // Force play the video
+            video.play().catch(e => {
+                console.log('Auto-play was prevented:', e);
+                // Fallback to showing first frame
+                video.currentTime = 0.1;
+            });
+            
             // Setup the scrollama instances
             const seasonalScroller = scrollama();
             const locationsScroller = scrollama();
