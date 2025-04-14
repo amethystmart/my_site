@@ -161,6 +161,33 @@
             max-width: 28rem;
         }
 
+        /* Section divider styles */
+        .section-divider {
+            height: 120px;
+            background-color: #fffde5; /* Light yellow to match your theme */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 -10px 15px -5px rgba(0, 0, 0, 0.1);
+            border-top: 1px solid #e0e0c0;
+            border-bottom: 1px solid #e0e0c0;
+        }
+
+        .divider-content {
+            max-width: 640px;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .divider-line {
+            width: 100px;
+            height: 2px;
+            background-color: #333;
+            margin: 15px auto;
+        }
+
         /* Mobile-specific adjustments */
         @media (max-width: 768px) {
             .content {
@@ -192,11 +219,11 @@
         <a href="index.html" class="inline-block mx-6 my-8 border-b-2 border-black hover:bg-black hover:text-yellow-50 transition-colors px-2">← Back to Portfolio</a>
 
         <div class="content">
-            <p>Every weekend, Steve “Wildman” Brill makes his trek out to one of New York City’s parks to teach intrigued beginners how to forage in an urban setting. Touring residents and visitors since the 1980s, there is no doubt that he has taught thousands of people how to safely eat and cook with plants scattered around the small amount of greenery that the city has. “Once in a while, people don’t sign up,” Brill said. “But that’s pretty rare.”
+            <p>Every weekend, Steve "Wildman" Brill makes his trek out to one of New York City's parks to teach intrigued beginners how to forage in an urban setting. Touring residents and visitors since the 1980s, there is no doubt that he has taught thousands of people how to safely eat and cook with plants scattered around the small amount of greenery that the city has. "Once in a while, people don't sign up," Brill said. "But that's pretty rare."
 </p>
-            <p> On a rainy Saturday morning in April, around 20 people showed up to learn from the Wildman in Prospect Park, Brooklyn. Things are much different than the 80s, where Brill was arrested by undercover park rangers for eating dandelion in Central Park. “I was on the front page of newspapers across the country,” Brill said. “It went viral before there was such a thing.”
+            <p> On a rainy Saturday morning in April, around 20 people showed up to learn from the Wildman in Prospect Park, Brooklyn. Things are much different than the 80s, where Brill was arrested by undercover park rangers for eating dandelion in Central Park. "I was on the front page of newspapers across the country," Brill said. "It went viral before there was such a thing."
             </p>
-            <p>Although foraging is banned in the city’s parks, his dandelion-eating arrest decades ago now keeps the rangers off his tail. And despite the downpour, Brill still had an audience. Many probably wouldn't consider the city as a place of nature. Yet, hidden inside certain pockets in the city and its parks lie places where edible plants grow every season.
+            <p>Although foraging is banned in the city's parks, his dandelion-eating arrest decades ago now keeps the rangers off his tail. And despite the downpour, Brill still had an audience. Many probably wouldn't consider the city as a place of nature. Yet, hidden inside certain pockets in the city and its parks lie places where edible plants grow every season.
 Mulberries, mugwort, grape leaves: All can be found in New York City, scattered throughout the boroughs.
  </p>
         </div>
@@ -232,12 +259,20 @@ Some juneberries, or serviceberries, can also be found in many city parks.
                 <div class="step" id="winter-step">
                     <div>
                         <h2 class="text-3xl font-bold mb-4 font-serif">Winter Findings</h2>
-                        <p>In the Winter season, things become harder to find. But Brill’s tours go from March to December, so the foraging continues. Chickweed is one option that’s available all year round. Brill has also found a Nettletree once with berries in mid-November, “and it only took me 31 years to find.”
+                        <p>In the Winter season, things become harder to find. But Brill's tours go from March to December, so the foraging continues. Chickweed is one option that's available all year round. Brill has also found a Nettletree once with berries in mid-November, "and it only took me 31 years to find."
                         </p>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- Section divider to create visual separation -->
+        <div class="section-divider">
+            <div class="divider-content">
+                <h2 class="text-2xl font-bold font-serif">Where to Forage</h2>
+                <div class="divider-line"></div>
+                <p class="text-sm m-0">Discover the best locations for finding wild edibles in NYC</p>
+            </div>
         </div>
 
         <!-- Scrollytelling locations section -->
@@ -272,12 +307,10 @@ Some juneberries, or serviceberries, can also be found in many city parks.
 
         <div class="content mt-16">
             <p>
-
 The falling fruit dataset has thousands of inputs from users across the world on foragable plants, and their location.
             </p>
-            <p>But Brill’s tours are one of the most common ways people begin to forage in the city, many having been on multiple tours he has given. In the small group, attendees laughed at Brill’s dad jokes, were able to pick some edible plants to take home, and were given a step-by-step guide on how to identify the correct species. So, maybe try something new. And maybe even get some groceries during your trip.
+            <p>But Brill's tours are one of the most common ways people begin to forage in the city, many having been on multiple tours he has given. In the small group, attendees laughed at Brill's dad jokes, were able to pick some edible plants to take home, and were given a step-by-step guide on how to identify the correct species. So, maybe try something new. And maybe even get some groceries during your trip.
 </p>
-            </ul>
         </div>
     </main>
 
