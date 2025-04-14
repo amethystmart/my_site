@@ -101,6 +101,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             object-fit: cover;
+            pointer-events: none;
         }
         
         .visualization {
@@ -212,7 +213,7 @@
     <!-- Hero section with background video -->
     <div class="header with-video-bg">
         <div class="video-container">
-            <video autoplay muted loop playsinline controls="false" disablePictureInPicture>
+            <video autoplay muted loop playsinline disablePictureInPicture>
                 <source src="/api/placeholder/400/320" type="video/mp4">
                 <!-- Add additional source elements for different video formats if needed -->
                 Your browser does not support the video tag.
