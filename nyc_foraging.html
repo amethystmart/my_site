@@ -26,65 +26,32 @@
             margin: auto;
         }
 
-        /* Video header styles */
-        .video-header {
-            position: relative;
-            height: 80vh;
-            width: 100%;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 2em;
-        }
-        
-        .header-content {
-            position: relative;
-            z-index: 3;
-            color: white;
-            text-align: center;
-            padding: 1em;
-            text-shadow: 0px 0px 30px rgba(0, 0, 0, 0.8), 
-                         0px 0px 10px rgba(0, 0, 0, 0.5);
-        }
-        
-        /* This is to completely cover the video so no controls can be clicked */
-        .click-blocker {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: 2;
-            background-color: rgba(0, 0, 0, 0.2); /* subtle dark tint */
-        }
-        
-        /* Video iframe will be positioned behind everything */
-        .video-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none; /* prevents all interaction */
-            z-index: 1;
-        }
-        
-        /* Background image as fallback */
-        .video-fallback {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('header.jpg');
-            background-size: cover;
-            background-position: center;
-            z-index: 0;
+        .header {
+            padding: 3em 0;
         }
 
         a {
             color: #f05349;
+        }
+
+        .footer {
+            background: #f4f4f4;
+            text-align: center;
+            font-size: 0.8em;
+            margin-top: 4em;
+            padding: 4em 0;
+        }
+
+        figure {
+            margin: 0;
+            padding-bottom: 1.2em;
+        }
+
+        figcaption {
+            font-size: 0.8em;
+            text-align: center;
+            margin-top: 0.5em;
+            color: #666;
         }
 
         h1 {
@@ -96,6 +63,39 @@
 
         .subhead {
             font-family: 'Lora', Georgia, serif;
+        }
+
+        .with-image-bg {
+            position: relative;
+            background-size: cover;
+            margin-bottom: 2em;
+
+            /* Center everything inside */
+            min-height: 70svh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            /* White text with a shadow */
+            color: white;
+            text-shadow: 0px 0px 30px black,
+                0px 0px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .with-image-bg {
+            background-image: url('header.jpg'); /* Replace with your actual image path */
+            background-position: center;
+        }
+        
+        .visualization {
+            margin: 2rem 0;
+            width: 100%;
+        }
+        
+        iframe {
+            width: 100%;
+            border: 1px solid black;
+            background: white;
         }
         
         p {
@@ -160,17 +160,6 @@
             font-family: 'Courier Prime', monospace;
             max-width: 28rem;
         }
-        
-        .visualization {
-            margin: 2rem 0;
-            width: 100%;
-        }
-        
-        iframe {
-            width: 100%;
-            border: 1px solid black;
-            background: white;
-        }
 
         /* Mobile-specific adjustments */
         @media (max-width: 768px) {
@@ -186,42 +175,25 @@
             body {
                 font-size: 18px;
             }
-            
-            h1 {
-                font-size: 2.5em;
-            }
         }
     </style>
 </head>
 
 <body class="bg-yellow-50 text-black">
-    <!-- Hero video header with a completely different approach -->
-    <div class="video-header">
-        <!-- Content on top -->
-        <div class="header-content content">
-            <h1>Yes, you can find some of your groceries in New York City nature.</h1>
+    <!-- Hero section with background image -->
+    <div class="header with-image-bg">
+        <div class="content">
+            <h1> Yes, you can find some of your groceries in New York City nature. </h1>
             <p class="subhead">Discovering wild edibles in America's largest city</p>
         </div>
-        
-        <!-- Invisible layer to block all interaction with the video -->
-        <div class="click-blocker"></div>
-        
-        <!-- Video background with no controls -->
-        <div class="video-background">
-            <!-- We'll create this element with JavaScript -->
-            <div id="video-container"></div>
-        </div>
-        
-        <!-- Fallback image in case video doesn't load -->
-        <div class="video-fallback"></div>
     </div>
 
     <main class="max-w-4xl mx-auto">
         <a href="index.html" class="inline-block mx-6 my-8 border-b-2 border-black hover:bg-black hover:text-yellow-50 transition-colors px-2">← Back to Portfolio</a>
 
         <div class="content">
-            <p>Every weekend, Steve "Wildman" Brill makes his trek out to one of New York City's parks to teach intrigued beginners how to forage in an urban setting. Touring residents and visitors since the 1980s, there is no doubt that he has taught thousands of people how to safely eat and cook with plants scattered around the small amount of greenery that the city has. 
-On a rainy Saturday morning in April, around 20 people showed up to learn from the Wildman in Prospect Park, Brooklyn. Things are much different than the 80s, where Brill was arrested by undercover park rangers for eating dandelion in Central Park. Although foraging is banned in the city's parks, his dandelion-eating arrest decades ago now keeps the rangers off his tail. And despite the downpour, Brill still had an audience. 
+            <p>Every weekend, Steve “Wildman” Brill makes his trek out to one of New York City’s parks to teach intrigued beginners how to forage in an urban setting. Touring residents and visitors since the 1980s, there is no doubt that he has taught thousands of people how to safely eat and cook with plants scattered around the small amount of greenery that the city has. 
+On a rainy Saturday morning in April, around 20 people showed up to learn from the Wildman in Prospect Park, Brooklyn. Things are much different than the 80s, where Brill was arrested by undercover park rangers for eating dandelion in Central Park. Although foraging is banned in the city’s parks, his dandelion-eating arrest decades ago now keeps the rangers off his tail. And despite the downpour, Brill still had an audience. 
                 New York City is known as one of the most iconic cities in the world, although many probably wouldn't consider it as a place of nature. Yet, hidden inside certain pockets in the city and its parks lie places for residents to forage– a scavenger hunt for food and provisions growing.</p>
             <p>Mulberries, mugwort, grape leaves: All can be found in New York City, scattered throughout the boroughs. </p>
         </div>
@@ -263,8 +235,7 @@ On a rainy Saturday morning in April, around 20 people showed up to learn from t
             </div>
         </section>
 
-        <div class="content">
-            <p>
+    d of hard to write about.]
             Some of the rules of the trade include axing any greedy tendencies by always leaving more for others, avoiding poisonous plants and possibly-poisonous areas, and cleaning finds before they're eaten.
             </p>
         </div>
@@ -341,53 +312,8 @@ On a rainy Saturday morning in April, around 20 people showed up to learn from t
     </footer>
 
     <script>
-        // Set up the video background with a different approach
+        // Intersection Observer for scroll animations
         document.addEventListener('DOMContentLoaded', function() {
-            const videoContainer = document.getElementById('video-container');
-            
-            // Create a div with background video using CSS
-            const videoDiv = document.createElement('div');
-            videoDiv.style.width = '100%';
-            videoDiv.style.height = '100%';
-            videoDiv.style.position = 'absolute';
-            videoDiv.style.top = '0';
-            videoDiv.style.left = '0';
-            videoDiv.style.overflow = 'hidden';
-            
-            // Alternative approach - just create a video with JavaScript and hack it
-            const videoElement = document.createElement('video');
-            videoElement.setAttribute('autoplay', '');
-            videoElement.setAttribute('muted', '');
-            videoElement.setAttribute('loop', '');
-            videoElement.setAttribute('playsinline', '');
-            videoElement.style.width = '100%';
-            videoElement.style.height = '100%';
-            videoElement.style.objectFit = 'cover';
-            videoElement.style.position = 'absolute';
-            
-            // Critical: These make the video completely non-interactive
-            videoElement.style.pointerEvents = 'none';
-            videoElement.style.userSelect = 'none';
-            videoElement.style.webkitUserSelect = 'none';
-            
-            // Video source
-            const source = document.createElement('source');
-            source.src = '/api/placeholder/400/320';
-            source.type = 'video/mp4';
-            
-            // Append video inside div
-            videoElement.appendChild(source);
-            videoDiv.appendChild(videoElement);
-            videoContainer.appendChild(videoDiv);
-            
-            // Force play
-            setTimeout(() => {
-                videoElement.play().catch(e => {
-                    console.log('Video autoplay prevented:', e);
-                });
-            }, 100);
-            
-            // Set up other interactive elements
             // Setup the scrollama instances
             const seasonalScroller = scrollama();
             const locationsScroller = scrollama();
