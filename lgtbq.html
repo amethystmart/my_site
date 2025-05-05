@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LGBTQ+ Legislation in 2025: A Global Perspective</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap');
+        
+        body {
+            font-family: 'Courier Prime', monospace;
+            background-color: #fffbeb;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Video hero section */
+        .video-hero {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        .video-hero video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+        
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Chart container */
+        .chart-container {
+            background: white;
+            padding: 20px;
+            margin: 30px 0;
+        }
+        
+        /* Full-bleed photo section with scrolling text */
+        .photo-section {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        .photo-section img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .photo-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+        
+        .scrolly-container {
+            position: relative;
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+        }
+        
+        .scrolly-step {
+            height: 100vh;
+            scroll-snap-align: start;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .scrolly-text {
+            max-width: 800px;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.75);
+            color: white;
+            border-radius: 8px;
+            transform: translateY(50px);
+            opacity: 0;
+            transition: transform 0.6s ease, opacity 0.6s ease;
+        }
+        
+        .scrolly-step.active .scrolly-text {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        /* Image break - REMOVED */
+        
+        /* Back link */
+        .back-link {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .back-link:hover {
+            background: #000;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <!-- Back Link -->
+    <a href="index.html" class="back-link text-sm border-b border-black hover:bg-black hover:text-yellow-50 transition-colors">← Back to Portfolio</a>
+    
+    <!-- Video Hero Section -->
+    <div class="video-hero">
+        <video autoplay loop muted playsinline>
+            <source src="IMG_5183.mov" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="video-overlay">
+            <h1 class="text-4xl md:text-6xl font-bold text-white text-center px-4">LGBTQ+ Legislation in 2025: A Global Perspective</h1>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-5xl mx-auto px-4 py-8">
+        <!-- Introduction -->
+        <div class="mb-12">
+            <p class="text-lg mb-4">2025 has been a year of significant legislative changes affecting LGBTQ+ communities worldwide. While some regions have expanded protections and rights, others have enacted restrictive policies. Our analysis tracks these developments across countries and regions, highlighting the ongoing struggle for equality.</p>
+            <p class="text-lg mb-4">This data visualization project examines the geographic distribution of pro-LGBTQ+ and anti-LGBTQ+ legislation, exploring patterns and identifying where the most significant changes are occurring.</p>
+        </div>
+        
+        <!-- First Chart -->
+        <div class="chart-container">
+            <iframe title="The U.S. Dominates Legislation Targeted at LGBTQ+ Individuals so Far This Year" aria-label="Bar Chart" id="datawrapper-chart-ma4gf" src="https://datawrapper.dwcdn.net/ma4gf/1/" scrolling="no" frameborder="0" style="width: 100%; height: 800px; border: none;" data-external="1"></iframe>
+            <script type="text/javascript">
+                !function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}}))}();
+            </script>
+        </div>
+        
+        <!-- Analysis Text -->
+        <div class="mb-12">
+            <p class="text-lg mb-4">Our analysis reveals that while the majority of global legislation has been supportive of LGBTQ+ rights, a significant portion remains restrictive. The United States shows a particularly concerning trend, with the highest number of anti-LGBTQ+ bills among all countries analyzed.</p>
+        </div>
+    </main>
+    
+    <!-- Full-Bleed Photo Section with Scrollytelling Text -->
+    <div class="photo-section">
+        <img src="IMG_5111.heic" alt="LGBTQ+ advocacy">
+        <div class="photo-overlay"></div>
+        
+        <div class="scrolly-container">
+            <!-- Step 1 -->
+            <div class="scrolly-step" id="step1">
+                <div class="scrolly-text">
+                    <h2 class="text-2xl font-bold mb-4">Human Impact</h2>
+                    <p class="text-lg">Beyond the statistics, these legislative changes have profound effects on LGBTQ+ individuals' daily lives. Healthcare access, housing security, employment opportunities, and even personal safety are directly impacted by these policy shifts.</p>
+                </div>
+            </div>
+            
+            <!-- Step 2 -->
+            <div class="scrolly-step" id="step2">
+                <div class="scrolly-text">
+                    <h2 class="text-2xl font-bold mb-4">Community Response</h2>
+                    <p class="text-lg">LGBTQ+ organizations have developed rapid response networks to provide resources to communities affected by restrictive legislation. Legal challenges have been filed against many of the most concerning bills, particularly those affecting transgender youth and healthcare access.</p>
+                </div>
+            </div>
+            
+            <!-- Step 3 -->
+            <div class="scrolly-step" id="step3">
+                <div class="scrolly-text">
+                    <h2 class="text-2xl font-bold mb-4">International Pressure</h2>
+                    <p class="text-lg">As 2025 continues, advocacy groups are monitoring pending legislation and preparing for the 2026 election cycles in several key countries. International human rights organizations have increased pressure on governments implementing anti-LGBTQ+ policies.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rest of Content -->
+    <main class="max-w-5xl mx-auto px-4 py-8">
+        <!-- Second Chart with Text -->
+        <div class="flex flex-col md:flex-row gap-8 mb-12">
+            <div class="md:w-1/2">
+                <p class="text-lg mb-4">When examining the types of legislation being enacted globally, we find that pro-LGBTQ+ bills outnumber anti-LGBTQ+ bills, with 25 pro-equality measures compared to 18 restrictive ones.</p>
+                <p class="text-lg mb-4">However, these numbers mask significant regional disparities. The United States, despite being a single country in our dataset, accounts for a disproportionate share of anti-LGBTQ+ measures, with 10 of its 13 total bills classified as restrictive.</p>
+                <p class="text-lg">In contrast, countries like Czechia, Poland, Thailand, and Mexico have passed exclusively pro-LGBTQ+ legislation in 2025, demonstrating a commitment to expanding protections.</p>
+            </div>
+            <div class="md:w-1/2">
+                <iframe title="2025 LGBTQ+ Bill Changes This Year" aria-label="Pie Chart" id="datawrapper-chart-ZWGkw" src="https://datawrapper.dwcdn.net/ZWGkw/2/" scrolling="no" frameborder="0" style="width: 100%; height: 500px; border: none;" data-external="1"></iframe>
+                <script type="text/javascript">
+                    !function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}}))}();
+                </script>
+            </div>
+        </div>
+        
+        <!-- Regional Analysis (Image Break Section REMOVED) -->
+        <div class="mb-12">
+            <p class="text-lg mb-4">The United States presents a patchwork of legislation at the state level, with Iowa, Ohio, Kentucky, and Kansas implementing more restrictive policies, particularly regarding transgender healthcare and housing protections. In contrast, Mexico has shown more progressive trends, especially in Mexico City and Veracruz.</p>
+            <p class="text-lg mb-4">European countries display mixed approaches, with Sweden, Iceland, and Liechtenstein expanding LGBTQ+ protections while countries like Hungary have moved in the opposite direction. Czechia stands out with multiple pro-LGBTQ+ legislative changes in 2025.</p>
+            <p class="text-lg mb-4">Australia shows progressive developments across multiple states, particularly in New South Wales and South Australia. Thailand has implemented significant pro-LGBTQ+ policies, including improved gender recognition procedures.</p>
+            <p class="text-lg mb-4">Argentina and Brazil represent mixed approaches, with both pro and anti legislation being enacted. Suriname has made positive strides with more inclusive legal protections for LGBTQ+ individuals.</p>
+        </div>
+        
+        <!-- Conclusion -->
+        <div class="mb-12">
+            <p class="text-lg mb-4">The legislative landscape of 2025 reflects the ongoing global struggle for LGBTQ+ equality. While significant progress has been made in many regions, the data reveals concerning trends of regression in others. The concentration of anti-LGBTQ+ legislation in certain countries and regions highlights the need for continued vigilance and advocacy.</p>
+            <p class="text-lg mb-8">This visualization project aims to inform and empower advocates, policymakers, and concerned citizens with data-driven insights into the current state of LGBTQ+ rights worldwide. By understanding these patterns, we can better focus efforts to ensure equality and dignity for all.</p>
+            
+            <p class="mt-8 pt-6 border-t border-black text-sm">Data sources for this project can be found at: <a href="https://github.com/username/lgbtq-legislation-2025" class="underline hover:bg-black hover:text-yellow-50 transition-colors" target="_blank">https://github.com/username/lgbtq-legislation-2025</a></p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t-2 border-black py-8">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <p class="mb-2">© 2025 Data Equality Project</p>
+            <p>Contact: dataequality@example.com</p>
+        </div>
+    </footer>
+
+    <script>
+        // Intersection Observer for scrollytelling text
+        document.addEventListener('DOMContentLoaded', function() {
+            const steps = document.querySelectorAll('.scrolly-step');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    } else {
+                        entry.target.classList.remove('active');
+                    }
+                });
+            }, {
+                threshold: 0.7, // Require 70% visibility before triggering
+                root: document.querySelector('.scrolly-container')
+            });
+            
+            steps.forEach(step => {
+                observer.observe(step);
+            });
+        });
+    </script>
+</body>
+</html>
